@@ -1,3 +1,8 @@
 function reducer(_, values) {
-  return Array.sum(values)
+  function red(acc, item) {
+    acc.visits += item.visits;
+    delete item.visits
+    return Object.assign(acc, item);
+  }
+  return values.reduce(red, { visits: 0 });
 }
