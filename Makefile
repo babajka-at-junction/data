@@ -1,11 +1,14 @@
 install:
 	pip install -r requirements.txt
 
+cook-data:
+	python src/cook_data.py
+
 init-db:
-	python init-db.py
+	python src/init_db.py
 
 map-counters:
-	python map-counters.py
+	python src/map_counters.py
 
 convert-counters:
-	python convert-counters.py
+	python src/convert_counters.py

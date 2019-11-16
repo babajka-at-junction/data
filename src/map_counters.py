@@ -1,10 +1,12 @@
+#!/usr/bin/env python3
+
 from bson.code import Code
 
 from utils import connect
 
 
-mapper_func = open('counters/mapper.js', 'r').read()
-reducer_func = open('counters/reducer.js', 'r').read()
+mapper_func = open('src/counters/mapper.js', 'r').read()
+reducer_func = open('src/counters/reducer.js', 'r').read()
 
 
 if __name__ == '__main__':

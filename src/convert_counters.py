@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+import json
+import os
+
+import pandas as pd
 from pyproj import CRS, Transformer
 
 from utils import connect
@@ -20,3 +25,8 @@ if __name__ == '__main__':
             { '_id': doc['_id'] },
             { '$set': doc}
         )
+
+    counters = pd.DataFrame(list(db.counters.find()))
+    outpath = os.path.join(os.path.dirname(__file__), '../counters.json')
+    with open(outpath, 'w') as outfile:
+        outfile.write(counters.to_json(orient='records'))
