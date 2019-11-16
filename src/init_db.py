@@ -26,8 +26,9 @@ if __name__ == '__main__':
             continue
 
         data_json[i]['start_at'] = start
-        data_json[i]['weekday'] = start.strftime('%A')
         data_json[i]['end_at'] = end
+        data_json[i]['weekday'] = start.strftime('%A')
+        data_json[i]['month'] = start.strftime('%B')
         data_json[i]['installed_at'] = parse_date(data_json[i]['installed_at'])
         data_to_db.append(data_json[i])
 

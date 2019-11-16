@@ -13,5 +13,8 @@ map-counters:
 map-weekdays:
 	python src/map_weekdays.py
 
+map-months:
+	python src/map_months.py
+
 convert-counters:
 	python src/convert_counters.py
