@@ -15,5 +15,12 @@ if __name__ == '__main__':
     db = connect()
     weekdays = db.main.map_reduce(Code(mapper_func), Code(reducer_func), 'weekdaysByCounter')
     outpath = os.path.join(os.path.dirname(__file__), '../weekdays.json')
+    result = {}
+    for doc in weekdays.find():
+        v = doc['value']
+        id, weekday, visits = int(v['id']), v['weekday'], int(v['visits'])
+        result[id] = result.get(id, {})
+        result[id][weekday] = visits
+
     with open(outpath, 'w') as outfile:
-        json.dump(list(weekdays.find()), outfile)
+        json.dump(result, outfile)
